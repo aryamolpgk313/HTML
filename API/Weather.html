@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #container 
+        {
+         display: grid;
+         grid-template-columns: 50% 50% ;
+         padding: 10px;
+         height: 100%;
+          }
+          span{
+              color: black;
+              font-weight: bolder;
+              font-family: Arial;
+          }
+          #app
+          {
+              background-color: royalblue;
+          }
+          #wthr
+          {
+              background-color: lightgrey;
+          }
+          h1{
+              color: white;
+              margin-top: 20%;
+              font-family: Arial;
+              font-weight: bolder;
+          }
+          #div1
+          {   margin-top: 30%;
+              margin-left: 20%;
+              color: white;
+          }
+          #div2
+          {
+              margin-top: 40%;
+              padding-left:20%;
+          }
+          #div2 p{
+              font-family: Arial;
+          }
+          #div3
+          {
+             margin-top: 10%;
+             padding-left: 20%;
+             height: 40px;
+          }
+          #shows
+          {
+              font-size:xx-large;
+          }
+          #show
+          {
+              font-weight: bolder;
+              font-size: 30;
+          }
+        </style>
+    </head>
+    <body>
+       <div id="container">
+           <div id="app">
+               <div id="div1">
+               <h1>Weather <span>App</span></h1>
+               <p>
+                   Build a simple UI that shows the weather of a city that is <br>
+                   entered by the user. Use HTML, CSS and JavaScript to<br>
+                   achieve this.
+               </p>
+               <p>Requirements:</p>
+               <ol>
+                 <li>Current date and time</li>
+                 <li>Weather(can be random)</li>
+                  <li>Temperature(conversion from one unit to another)</li>
+                  <li>Text box with autocomplete</li>
+               </ol>
+               </div>
+           </div>
+           <div id="wthr">
+               <div id="div3">
+                   <p id="shows"></p>
+                   <p id="show1"></p>
+                    <p id="show"></p>
+                    <p id="show2"></p>
+                    <img src="" id="icon">
+               </div>
+                <div id="div2">
+                    <p>Enter city name</p>
+                    <input type="text" name="city" required="required"required placeholder="City,State" size="40" id="txt1"></br><br>
+                    <input type="submit" value="submit" id="btn">
+                </div>
+           </div>
+       </div>
+       <script>
+       $(document).ready(function()
+        {
+            $("#btn").click(weather);
+            function weather()
+            {
+                var text=$("#txt1").val();
+                $.ajax({
+                    url:"http://api.openweathermap.org/data/2.5/weather?q="+text+"&units=metric"+"&APPID=4a46e146e9f309dffad77471e3dd00ee",
+                    type:"GET",
+                    datatype:"jsonp",
+                    success:function(data)
+                    {
+                        console.log(data);
+                        document.getElementById("show").innerHTML=data.main.temp+" &#8451;"
+                        var d = new Date();
+                       var weekday = new Array(7);
+                        weekday[0] = "Sunday";
+                        weekday[1] = "Monday";
+                        weekday[2] = "Tuesday";
+                        weekday[3] = "Wednesday";
+                        weekday[4] = "Thursday";
+                        weekday[5] = "Friday";
+                        weekday[6] = "Saturday";
+                         var t=weekday[d.getDay()]+","+d.getHours() + ":" +d.getMinutes()+":"+d.getSeconds();
+                         document.getElementById("show1").innerHTML=t;
+                         var place = document.getElementById("txt1").value;
+                         document.getElementById("shows").innerHTML=place+","+data.sys.country;
+                         document.getElementById("show2").innerHTML=data.weather[0].description;
+                         var icon="http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
+                         document.getElementById("icon").src=icon;
+                    }
+                });
+            }
+        });
+       </script>
+    </body>
+</html>
