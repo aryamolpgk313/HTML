@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Details</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+              $(":reset")
+            });
+            </script>
+        <style>
+        .detail
+        {
+            margin-left: 30%;
+        }
+        .h2
+        {
+            margin-left: 35%;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="detail">
+            <form action=" ">
+        <header><h2>Student Details</h2></header>
+        <section id="content"></section>
+        <select id="num" style="width: 20%;">
+            <option value="Select">Select a student Id</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <br><br>
+        <input type="button" value="submit" onclick="details()">
+        <input type="reset" value="Reset" onclick="reset()">
+    </form>
+    </div>
+        <script src="stud.js"></script>
+    </body>
+</html>

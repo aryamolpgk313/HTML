@@ -1,0 +1,25 @@
+{
+    "students":[
+        {
+         "Name":"Aryamol Shaji",
+         "Rollno":"1",
+         "Department":"Cse",
+         "Year":"2019",
+         "Place":"Idukki"
+        },
+        {
+            "Name":"Jyothi Cd",
+            "Rollno":"2",
+            "Department":"ECE",
+            "Year":"2019",
+            "Place":"Thrissur"
+        },
+        {
+        "Name":"Aswathy K.K",
+         "Rollno":"3",
+         "Department":"Cse",
+         "Year":"2018",
+         "Place":"Malappuram"  
+        }
+    ]
+}

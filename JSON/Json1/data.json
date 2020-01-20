@@ -1,0 +1,19 @@
+{
+    "events":[
+        {
+         "location":"San fransisco,CA",
+         "date":"May 1",
+         "map":"JerryMouse.png"
+        },
+        {
+            "location":"Austin,TX",
+            "date":"May 15",
+            "map":"favourite.jpg"
+        },
+        {
+            "location":"New York,Ny",
+            "date":"May 20",
+            "map":"favourite.jpg"
+        }
+    ]
+}
